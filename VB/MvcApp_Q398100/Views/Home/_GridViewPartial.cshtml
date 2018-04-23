@@ -1,0 +1,29 @@
+@using DevExpress.Web.Mvc.UI;
+@using DevExpress.Web.Mvc;
+@Html.DevExpress().GridView(settings => {
+    settings.Name = "dxGridView";
+    settings.KeyFieldName = "ProductID";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "GridViewPartial" };
+
+    settings.Columns.Add("ProductID");
+    settings.Columns.Add("ProductName");
+    settings.Columns.Add("CategoryID");
+    settings.Columns.Add("Discontinued", MVCxGridViewColumnType.CheckBox);
+
+    settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Count, "ProductName");
+
+    settings.Columns.Add(column => {
+        column.FieldName = "ProductName";
+        column.SetHeaderCaptionTemplateContent(c => {
+            ASPxGridView grid = c.Grid;
+            ASPxSummaryItem summary = grid.TotalSummary["ProductName", DevExpress.Data.SummaryItemType.Count];
+            GridViewDataColumn col = c.Column as GridViewDataColumn;
+            
+            string text = summary.GetTotalFooterDisplayText(col, grid.GetTotalSummaryValue(summary));
+            string summaryText =  string.Format("{0}\r\n({1})", col.FieldName, text);
+
+            ViewContext.Writer.Write(summaryText);
+        });
+    });
+
+}).Bind(Model).GetHtml()
