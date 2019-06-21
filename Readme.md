@@ -7,6 +7,9 @@
 * [Index.cshtml](./CS/MvcApp_Q398100/Views/Home/Index.cshtml)
 <!-- default file list end -->
 # GridView - How to display a total summary within the column header 
+<!-- run online -->
+**[[Run Online]](https://codecentral.devexpress.com/e4003)**
+<!-- run online end -->
 
 
 <p>To show the TotalSummary value at the top of GridView, write the required text in the column's HeaderCaptionTemplate.</p>
