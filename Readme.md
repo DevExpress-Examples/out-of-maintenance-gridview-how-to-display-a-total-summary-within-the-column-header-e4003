@@ -8,7 +8,7 @@
 <!-- default file list end -->
 # GridView - How to display a total summary within the column header 
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/e4003)**
+**[[Run Online]](https://codecentral.devexpress.com/e4003/)**
 <!-- run online end -->
 
 
